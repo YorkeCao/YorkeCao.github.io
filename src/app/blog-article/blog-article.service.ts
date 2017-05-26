@@ -1,0 +1,32 @@
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+
+import 'rxjs/add/operator/toPromise';
+
+const ARTICLES = [
+  "Spring Cloud 架构概述",
+  "Eureka - 服务发现",
+  "Zuul - 反向代理",
+  "Ribbon - 负载均衡"
+];
+const ARTICLE_PATH = '/assets/articles/';
+const ARTICLE_SUFFIX = '.md';
+
+@Injectable()
+export class BlogArticleService {
+  private articleList = ARTICLES;
+
+  constructor(
+    private http: Http
+  ) { }
+
+  getArticleList(): string[] {
+    return this.articleList;
+  }
+
+  getArticle(title: string) {
+    return this.http.get(ARTICLE_PATH + title + ARTICLE_SUFFIX)
+      .toPromise()
+      .then(response => response.text() as string);
+  }
+}

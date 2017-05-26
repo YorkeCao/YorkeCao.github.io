@@ -1,0 +1,16 @@
+<md-sidenav-container>
+  <md-sidenav #sidenav mode="side" opened="true">
+    <md-nav-list>
+      <h3 md-subheader>Spring Cloud</h3>
+    </md-nav-list>
+
+    <md-nav-list *ngFor="let article of articleList" dense>
+      <md-list-item (click)="onSelect(article)" routerLinkActive="active">
+        <md-icon md-list-icon>note</md-icon>
+        <a md-line >{{article}}</a>
+      </md-list-item>
+    </md-nav-list>
+  </md-sidenav>
+
+  <router-outlet></router-outlet>
+</md-sidenav-container>
