@@ -10,6 +10,7 @@ import { BlogArticleService } from '../blog-article.service';
 })
 export class ArticlePanelComponent implements OnInit {
   articleList: string[];
+  selectedArticle = 'Spring Cloud';
 
   constructor(
     private router: Router,
@@ -22,7 +23,7 @@ export class ArticlePanelComponent implements OnInit {
   }
 
   onSelect(title: string): void {
-    console.log(title);
+    this.selectedArticle = title;
     this.router.navigate([title], {relativeTo: this.activatedRoute});
   }
 }

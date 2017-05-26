@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
+import * as marked from 'marked';
 import 'rxjs/add/operator/toPromise';
 
 const ARTICLES = [
@@ -24,9 +25,9 @@ export class BlogArticleService {
     return this.articleList;
   }
 
-  getArticle(title: string) {
+  getArticle(title: string): Promise<string> {
     return this.http.get(ARTICLE_PATH + title + ARTICLE_SUFFIX)
       .toPromise()
-      .then(response => response.text() as string);
+      .then(response =>  marked(response.text() as string));
   }
 }
