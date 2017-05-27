@@ -219,6 +219,10 @@ Eureka Client 也可通过 Eureka Server 获取其他已注册的节点的位置
 
 ![](\assets\picture\Eureka02.png)
 
+通过 `http://localhost:8761/` 还可以访问注册中心的管理界面，查看当前注册信息：
+
+![](\assets\picture\Eureka03.png)
+
 
 
 ## 总结

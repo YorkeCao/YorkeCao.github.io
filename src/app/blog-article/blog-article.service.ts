@@ -8,7 +8,8 @@ const ARTICLES = [
   "Spring Cloud 架构概述",
   "Eureka - 服务发现",
   "Zuul - 反向代理",
-  "Ribbon - 负载均衡"
+  "Ribbon - 负载均衡",
+  "Config - 配置中心"
 ];
 const ARTICLE_PATH = '/assets/articles/';
 const ARTICLE_SUFFIX = '.md';
