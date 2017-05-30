@@ -2,6 +2,27 @@
   padding: 2vh 2vw;
 }
 
-img {
-  max-width: 94vw;
+:host /deep/ img {
+  max-width: 87vw;
+}
+
+:host /deep/ code {
+  background-color: #f8f8f8;
+  border-radius: 3px;
+  padding: 0;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+  padding: 2px 4px 0px 4px;
+  font-size: 0.9em;
+}
+
+:host /deep/ pre {
+  white-space: pre-wrap;
+  padding: 1rem;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border: 0;
+  border-radius: 3px;
+  color: #777777;
+  margin-top: 0 !important;
 }

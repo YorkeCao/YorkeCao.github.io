@@ -6,7 +6,7 @@
 
     <md-nav-list *ngFor="let article of articleList" dense>
       <md-list-item (click)="onSelect(article); sidenav.toggle()" routerLinkActive="active">
-        <md-icon md-list-icon>note</md-icon>
+        <md-icon color="accent" md-list-icon>note</md-icon>
         <a md-line >{{article}}</a>
       </md-list-item>
     </md-nav-list>
