@@ -17,6 +17,7 @@
 
 :host /deep/ pre {
   white-space: pre-wrap;
+  word-wrap: break-word;
   padding: 1rem;
   font-size: 85%;
   line-height: 1.45;
