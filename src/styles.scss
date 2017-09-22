@@ -1,25 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-@import './app/app.component.theme';
-@import './app/blog-article/article-panel/article-panel.component.theme';
 
-$blog-app-primary: mat-palette($mat-indigo);
-$blog-app-accent: mat-palette($mat-pink);
-
-$blog-app-theme: mat-light-theme($blog-app-primary, $blog-app-accent);
-@include angular-material-theme($blog-app-theme);
-@include app-theme($blog-app-theme);
-@include article-panel-component-theme($blog-app-theme);
-
-html {
-  width: 100vw;
-  height: 100vh;
+body {
   margin: 0;
 }
 
-body {
-  width: 100%;
+html {
   height: 100%;
-  margin: 0;
+  width: 100%;
+}
+
+.mat-toolbar-row {
+  height: 56px !important;
 }

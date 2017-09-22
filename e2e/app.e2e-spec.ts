@@ -1,14 +1,14 @@
-import { YorkeCao.Github.IoPage } from './app.po';
+import { AppPage } from './app.po';
 
 describe('yorke-cao.github.io App', () => {
-  let page: YorkeCao.Github.IoPage;
+  let page: AppPage;
 
   beforeEach(() => {
-    page = new YorkeCao.Github.IoPage();
+    page = new AppPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Welcome to app!');
   });
 });

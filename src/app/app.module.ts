@@ -1,31 +1,38 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from '@angular/material';
-
-import { AppRoutingModule } from './app-routing.module';
-import { BlogArticleModule } from './blog-article/blog-article.module';
-
-import 'hammerjs';
+import { NgModule } from '@angular/core';
+import { MdToolbarModule, MdButtonModule, MdIconModule, MdSidenavModule, MdListModule } from '@angular/material';
+import { HttpModule } from '@angular/http';
+import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+
+import { BlogService } from './blog.service';
+import { ContentComponent } from './content/content.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ContentComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule,
     BrowserAnimationsModule,
-    MaterialModule,
-    BlogArticleModule,
+    HttpModule,
+    MdToolbarModule,
+    MdButtonModule,
+    MdIconModule,
+    MdSidenavModule,
+    MdListModule,
+    NgZorroAntdModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    BlogService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

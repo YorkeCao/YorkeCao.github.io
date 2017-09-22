@@ -1,7 +1,27 @@
-<md-toolbar id="tool-bar" color="primary">
-  <button md-button routerLink="/" routerLinkActive="active">
+<md-toolbar color="primary">
+  <button md-button>
     <md-icon color="accent">book</md-icon>
     <span>{{title}}</span>
   </button>
 </md-toolbar>
-<router-outlet></router-outlet>
+<md-sidenav-container>
+  <md-sidenav #sidenav mode="side" opened="true">
+    <!-- <md-nav-list *ngFor="let blog of blogs" dense>
+      <md-icon color="accent" md-list-icon>note</md-icon>
+      <a md-line routerLink="/blogs/{{blog.path}}">{{blog.path}}</a>
+    </md-nav-list> -->
+    <ul nz-menu [nzMode]="'inline'">
+      <li nz-submenu>
+        <span title><i class="anticon anticon-appstore"></i>Spring Cloud</span>
+        <ul *ngFor="let blog of blogs">
+          <li nz-menu-item>
+            <a routerLink="/blogs/{{blog.name}}">{{blog.name}}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </md-sidenav>
+
+  <router-outlet></router-outlet>
+</md-sidenav-container>
+

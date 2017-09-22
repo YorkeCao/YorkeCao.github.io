@@ -1,16 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [
-  { path: '', redirectTo: '/articles/Spring%20Cloud%20架构概述', pathMatch: 'full' },
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ContentComponent } from './content/content.component';
+
+const appRoutes: Routes = [
+  { path: 'blogs/:title', component: ContentComponent },
+  { path: '', component: DashboardComponent }
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(
+      appRoutes
+    )
   ],
-  exports: [
-    RouterModule
-  ],
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }
