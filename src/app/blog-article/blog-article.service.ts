@@ -11,7 +11,7 @@ const ARTICLES = [
   "Ribbon - 负载均衡",
   "Config - 配置中心"
 ];
-const ARTICLE_PATH = '/assets/articles/';
+const ARTICLE_PATH = '/assets/articles/Spring Cloud/';
 const ARTICLE_SUFFIX = '.md';
 
 @Injectable()
