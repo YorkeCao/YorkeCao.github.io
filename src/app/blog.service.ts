@@ -41,7 +41,7 @@ export class BlogService {
 
   getFile(dir: string, name: string): Observable<string> {
     return this.http
-      .get("https://gitee.com/" + this.owner + "/" + this.repo + "/raw/master/assets/articles/" + dir + "/" + name)
+      .get("http://" + this.owner +".gitee.io/assets/articles/" + dir + "/" + name)
       .map(response => marked(response.text()));
   }
 }
