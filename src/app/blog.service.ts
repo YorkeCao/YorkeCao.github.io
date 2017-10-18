@@ -3,10 +3,8 @@ import { Http } from '@angular/http';
 
 import * as marked from 'marked';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
-
-import { Blog } from './blog';
+import { Content } from './content';
 
 @Injectable()
 export class BlogService {
@@ -17,16 +15,33 @@ export class BlogService {
     private http: Http
   ) { }
 
-  getBlogList(): Observable<Blog[]> {
+  getBlogs(): Map<string, Content[]> {
+    let blogs = new Map<string, Content[]>();
+
+    this.getDirs().subscribe(
+      contents => contents.forEach(
+          dir => this.getFiles(dir.url).subscribe(
+              files => blogs.set(dir.name, files))
+        )
+      );
+    return blogs;
+  }
+
+  getDirs(): Observable<Content[]> {
     return this.http
       .get("https://api.github.com/repos/" + this.owner + "/" + this.repo + "/contents/assets/articles")
       .map(response => response.json());
   }
 
-  getBlog(title: string): Promise<string> {
+  getFiles(url: string): Observable<Content[]> {
     return this.http
-      .get("https://raw.githubusercontent.com/" + this.owner + "/" + this.repo + "/master/assets/articles/" + title)
-      .toPromise()
-      .then(response => marked(response.text()));
+      .get(url)
+      .map(response => response.json());
+  }
+
+  getFile(dir: string, name: string): Observable<string> {
+    return this.http
+      .get("https://raw.githubusercontent.com/" + this.owner + "/" + this.repo + "/master/assets/articles/" + dir + "/" + name)
+      .map(response => marked(response.text()));
   }
 }

@@ -1,4 +1,4 @@
-export class Blog {
+export class Content {
   name: string;
   path: string;
   sha: string;

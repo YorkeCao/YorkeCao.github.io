@@ -1,19 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ContentComponent } from './content/content.component';
+import { YkBlogContentComponent } from './yk-blog-content/yk-blog-content.component';
 
 const appRoutes: Routes = [
-  { path: 'blogs/:title', component: ContentComponent },
-  { path: '', component: DashboardComponent }
+  { path: ':dir/:file', component: YkBlogContentComponent }
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(
-      appRoutes
-    )
+    RouterModule.forRoot(appRoutes)
   ],
   exports: [RouterModule],
 })

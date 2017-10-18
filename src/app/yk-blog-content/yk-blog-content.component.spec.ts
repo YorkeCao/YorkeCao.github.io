@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContentComponent } from './content.component';
+import { YkBlogContentComponent } from './yk-blog-content.component';
 
-describe('ContentComponent', () => {
-  let component: ContentComponent;
-  let fixture: ComponentFixture<ContentComponent>;
+describe('YkBlogContentComponent', () => {
+  let component: YkBlogContentComponent;
+  let fixture: ComponentFixture<YkBlogContentComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ContentComponent ]
+      declarations: [ YkBlogContentComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ContentComponent);
+    fixture = TestBed.createComponent(YkBlogContentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

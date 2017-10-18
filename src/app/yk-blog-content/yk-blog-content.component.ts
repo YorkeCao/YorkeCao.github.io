@@ -4,14 +4,13 @@ import { ActivatedRoute, Params } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
 import { BlogService } from '../blog.service';
-
 @Component({
-  selector: 'app-content',
-  templateUrl: './content.component.html',
-  styleUrls: ['./content.component.scss']
+  selector: 'app-yk-blog-content',
+  templateUrl: './yk-blog-content.component.html',
+  styleUrls: ['./yk-blog-content.component.scss']
 })
-export class ContentComponent implements OnInit {
-  blog: string;
+export class YkBlogContentComponent implements OnInit {
+  file: string;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -20,7 +19,8 @@ export class ContentComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params
-      .switchMap((params: Params) => this.blogService.getBlog(params['title']))
-      .subscribe(blog => this.blog = blog);
+      .switchMap((params: Params) => this.blogService.getFile(params['dir'], params['file']))
+      .subscribe(file => this.file = file);
   }
+
 }

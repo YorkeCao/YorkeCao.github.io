@@ -1,0 +1,8 @@
+<div *ngIf="isShow">
+  <mat-nav-list dense>
+    <mat-list-item *ngFor="let file of files">
+      <mat-icon mat-list-icon color="accent">note</mat-icon>
+      <a routerLink="/{{dir}}/{{file.name}}" mat-line>{{file.name}}</a>
+    </mat-list-item>
+  </mat-nav-list>
+</div>

@@ -1,27 +1,22 @@
-<md-toolbar color="primary">
-  <button md-button>
-    <md-icon color="accent">book</md-icon>
+<mat-toolbar color="primary">
+  <button mat-button>
+    <mat-icon color="accent">book</mat-icon>
     <span>{{title}}</span>
   </button>
-</md-toolbar>
-<md-sidenav-container>
-  <md-sidenav #sidenav mode="side" opened="true">
-    <!-- <md-nav-list *ngFor="let blog of blogs" dense>
-      <md-icon color="accent" md-list-icon>note</md-icon>
-      <a md-line routerLink="/blogs/{{blog.path}}">{{blog.path}}</a>
-    </md-nav-list> -->
-    <ul nz-menu [nzMode]="'inline'">
-      <li nz-submenu>
-        <span title><i class="anticon anticon-appstore"></i>Spring Cloud</span>
-        <ul *ngFor="let blog of blogs">
-          <li nz-menu-item>
-            <a routerLink="/blogs/{{blog.name}}">{{blog.name}}</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </md-sidenav>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" opened="true">
+    <mat-nav-list>
+      <h3 mat-subheader>列表</h3>
+      <div *ngFor="let dir of dirs">
+        <mat-list-item>
+         <mat-icon mat-list-icon color="accent">folder</mat-icon>
+         <a mat-line (click)="files.toggle()">{{dir.name}}</a>
+        </mat-list-item>
+        <app-yk-folder #files [dir]="dir.name" [url]="dir.url"></app-yk-folder>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
 
   <router-outlet></router-outlet>
-</md-sidenav-container>
-
+</mat-sidenav-container>

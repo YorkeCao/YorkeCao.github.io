@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
+import { Content } from './content';
 import { BlogService } from './blog.service';
-import { Blog } from './blog';
 
 @Component({
   selector: 'app-root',
@@ -10,14 +11,19 @@ import { Blog } from './blog';
 })
 export class AppComponent implements OnInit {
   title = "Yorke's Blog";
-  blogs: Blog[];
+  dirs: Content[];
 
   constructor(
+    private router: Router,
     private blogService: BlogService
   ) {}
 
   ngOnInit() {
-    this.blogService.getBlogList()
-      .subscribe(blogs => this.blogs = blogs);
+    this.blogService.getDirs()
+      .subscribe(dirs => this.dirs = dirs);
+  }
+
+  gotoList(name: string): void {
+    this.router.navigate(['/' + name]);
   }
 }
