@@ -8,8 +8,8 @@ import { Content } from './content';
 
 @Injectable()
 export class BlogService {
-  owner = "YorkeCao";
-  repo = "YorkeCao.github.io";
+  owner = "yukun.cao";
+  repo = "yukun.cao";
 
   constructor(
     private http: Http
@@ -29,7 +29,7 @@ export class BlogService {
 
   getDirs(): Observable<Content[]> {
     return this.http
-      .get("https://api.github.com/repos/" + this.owner + "/" + this.repo + "/contents/assets/articles")
+      .get("https://gitee.com/api/v5/repos/" + this.owner + "/" + this.repo + "/contents/assets/articles")
       .map(response => response.json());
   }
 
@@ -41,7 +41,7 @@ export class BlogService {
 
   getFile(dir: string, name: string): Observable<string> {
     return this.http
-      .get("https://raw.githubusercontent.com/" + this.owner + "/" + this.repo + "/master/assets/articles/" + dir + "/" + name)
+      .get("https://gitee.com/" + this.owner + "/" + this.repo + "/raw/master/assets/articles/" + dir + "/" + name)
       .map(response => marked(response.text()));
   }
 }
