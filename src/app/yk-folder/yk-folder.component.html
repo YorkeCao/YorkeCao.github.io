@@ -2,7 +2,7 @@
   <mat-nav-list dense>
     <mat-list-item *ngFor="let file of files">
       <mat-icon mat-list-icon color="accent">note</mat-icon>
-      <a routerLink="/{{dir}}/{{file.name}}" mat-line>{{file.name}}</a>
+      <a routerLink="/{{dir}}/{{file.name}}" mat-line>{{file.name | fileName}}</a>
     </mat-list-item>
   </mat-nav-list>
 </div>

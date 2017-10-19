@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <button mat-button>
+  <button mat-button routerLink="/" routerLinkActive="active">
     <mat-icon color="accent">book</mat-icon>
     <span>{{title}}</span>
   </button>
@@ -9,9 +9,11 @@
     <mat-nav-list>
       <h3 mat-subheader>列表</h3>
       <div *ngFor="let dir of dirs">
-        <mat-list-item>
+        <mat-list-item (click)="files.toggle()">
          <mat-icon mat-list-icon color="accent">folder</mat-icon>
-         <a mat-line (click)="files.toggle()">{{dir.name}}</a>
+         <a mat-line>{{dir.name}}</a>
+         <mat-icon *ngIf="!files.isShow" color="accent">keyboard_arrow_down</mat-icon>
+         <mat-icon *ngIf="files.isShow" color="accent">keyboard_arrow_up</mat-icon>
         </mat-list-item>
         <app-yk-folder #files [dir]="dir.name" [url]="dir.url"></app-yk-folder>
       </div>
