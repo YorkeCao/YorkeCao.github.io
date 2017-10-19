@@ -6,18 +6,19 @@
 </mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav #sidenav mode="side" opened="true">
-    <mat-nav-list>
-      <h3 mat-subheader>列表</h3>
+      <mat-list><h3 mat-subheader>博文列表</h3></mat-list>
+
       <div *ngFor="let dir of dirs">
-        <mat-list-item (click)="files.toggle()">
-         <mat-icon mat-list-icon color="accent">folder</mat-icon>
-         <a mat-line>{{dir.name | contentName:'dir'}}</a>
-         <mat-icon *ngIf="!files.isShow" color="accent">keyboard_arrow_down</mat-icon>
-         <mat-icon *ngIf="files.isShow" color="accent">keyboard_arrow_up</mat-icon>
-        </mat-list-item>
-        <app-yk-folder #files [dir]="dir.name" [url]="dir.url"></app-yk-folder>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon mat-line color="accent">folder</mat-icon>
+              {{dir.name | contentName:'dir'}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <app-yk-folder #files [dir]="dir.name" [url]="dir.url"></app-yk-folder>
+        </mat-expansion-panel>
       </div>
-    </mat-nav-list>
   </mat-sidenav>
 
   <router-outlet></router-outlet>

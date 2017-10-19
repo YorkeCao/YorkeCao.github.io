@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule, MatExpansionModule } from '@angular/material';
 
 
 import { AppComponent } from './app.component';
@@ -28,6 +28,7 @@ import { ContentNamePipe } from './content-name.pipe';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
+    MatExpansionModule,
     AppRoutingModule
   ],
   providers: [

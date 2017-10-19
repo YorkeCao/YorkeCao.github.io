@@ -12,7 +12,7 @@ export class YkFolderComponent implements OnInit {
   @Input() dir: string;
   @Input() url: string;
   files: Content[];
-  isShow = false;
+  isShow = true;
 
   constructor(
     private blogService: BlogService
