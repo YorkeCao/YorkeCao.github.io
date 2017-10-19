@@ -35,7 +35,7 @@ export class BlogService {
 
   getFiles(url: string): Observable<Content[]> {
     return this.http
-      .get(url)
+      .get(url + "?ref=osc-pages")
       .map(response => response.json());
   }
 
