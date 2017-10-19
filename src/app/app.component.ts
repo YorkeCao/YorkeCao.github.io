@@ -10,7 +10,7 @@ import { BlogService } from './blog.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = "Yorke's Blog";
+  title = "宇坤的博客";
   dirs: Content[];
 
   constructor(

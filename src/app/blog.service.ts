@@ -48,7 +48,7 @@ export class BlogService {
 
   getCommits(): Observable<CommitObject[]> {
     return this.http
-      .get("https://gitee.com/api/v5/repos/" + this.owner + "/" + this.repo + "/commits?sha=osc-pages&page=1&per_page=5")
+      .get("https://gitee.com/api/v5/repos/" + this.owner + "/" + this.repo + "/commits?sha=osc-pages&page=1&per_page=7")
       .map(response => response.json());
   }
 }
