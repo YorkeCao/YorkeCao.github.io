@@ -10,14 +10,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { BlogService } from './blog.service';
 import { YkFolderComponent } from './yk-folder/yk-folder.component';
 import { YkBlogContentComponent } from './yk-blog-content/yk-blog-content.component';
-import { FileNamePipe } from './file-name.pipe';
+import { ContentNamePipe } from './content-name.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     YkFolderComponent,
     YkBlogContentComponent,
-    FileNamePipe
+    ContentNamePipe
   ],
   imports: [
     BrowserModule,

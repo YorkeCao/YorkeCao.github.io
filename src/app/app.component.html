@@ -11,7 +11,7 @@
       <div *ngFor="let dir of dirs">
         <mat-list-item (click)="files.toggle()">
          <mat-icon mat-list-icon color="accent">folder</mat-icon>
-         <a mat-line>{{dir.name}}</a>
+         <a mat-line>{{dir.name | contentName:'dir'}}</a>
          <mat-icon *ngIf="!files.isShow" color="accent">keyboard_arrow_down</mat-icon>
          <mat-icon *ngIf="files.isShow" color="accent">keyboard_arrow_up</mat-icon>
         </mat-list-item>

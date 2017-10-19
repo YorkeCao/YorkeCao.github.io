@@ -29,7 +29,7 @@ export class BlogService {
 
   getDirs(): Observable<Content[]> {
     return this.http
-      .get("https://gitee.com/api/v5/repos/" + this.owner + "/" + this.repo + "/contents/assets/articles")
+      .get("https://gitee.com/api/v5/repos/" + this.owner + "/" + this.repo + "/contents/assets/articles?ref=osc-pages")
       .map(response => response.json());
   }
 
