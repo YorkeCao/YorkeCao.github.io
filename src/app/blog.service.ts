@@ -5,6 +5,7 @@ import * as marked from 'marked';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Content } from './content';
+import { CommitObject } from './commit-object';
 
 @Injectable()
 export class BlogService {
@@ -43,5 +44,11 @@ export class BlogService {
     return this.http
       .get("http://" + this.owner +".gitee.io/assets/articles/" + dir + "/" + name)
       .map(response => marked(response.text()));
+  }
+
+  getCommits(): Observable<CommitObject[]> {
+    return this.http
+      .get("https://gitee.com/api/v5/repos/" + this.owner + "/" + this.repo + "/commits?sha=osc-pages&page=1&per_page=5")
+      .map(response => response.json());
   }
 }

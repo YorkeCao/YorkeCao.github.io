@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   constructor(
     private router: Router,
     private blogService: BlogService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.blogService.getDirs()
